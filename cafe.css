@@ -1,0 +1,19 @@
+body {
+    background-image: url("https://cafebenelux.com/wp-content/uploads/sites/4/2022/05/cafebenelux-1.jpeg");
+    color: white;
+    text-align: center;
+    text-shadow: 4px 4px 4px black;
+  }
+  
+  a:link {
+    color:white;
+  }
+  
+  a:visited {
+    color:gray;
+    text-shadow: 4px 4px 4px white;
+  }
+  
+  #side {
+    text-align: left;
+  }

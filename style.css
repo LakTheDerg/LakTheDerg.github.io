@@ -1,0 +1,34 @@
+body {
+    text-align: center;
+    font-family: Candara;
+    color: white;
+    background-image: url('https://wallpapers.com/images/featured/pusheen-pc-xsnstusz0b9k4im5.jpg');
+    background-repeat: no repeat;
+    text-shadow: 2px 2px 8px black;
+  }
+  
+  h5 {
+    font-size: 5px;
+  }
+  
+  h6 {
+    font-size: 100px;
+  }
+  
+  .side{
+    text-align:left;
+  }
+  
+  a:link{
+    color: white;
+  }
+  
+  a:visited{
+    color: gray;
+    text-shadow: 2px 2px 8px white;
+  }
+  
+  #right{
+    text-align: right;
+  }
+  
