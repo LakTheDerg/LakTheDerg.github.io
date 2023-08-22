@@ -2,7 +2,12 @@ body {
     background-image: url("https://c8.alamy.com/comp/BD0D54/empty-stage-with-band-equipment-set-up-BD0D54.jpg");
     color:white;
   }
-
-a:link {
-  color:white;
-}
+ 
+  a:link{
+    color: white;
+  }
+  
+  a:visited{
+    color: yellow;
+    text-shadow: 4px 4px 4px black;
+  }
