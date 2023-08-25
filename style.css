@@ -24,7 +24,7 @@ body {
   }
   
   a:visited{
-    color: gray;
+    color: lightgray;
     text-shadow: 2px 2px 8px white;
   }
   
