@@ -39,13 +39,37 @@ $(function () {
     //////////ONLY CHANGE BELOW THIS POINT///////////
     /////////////////////////////////////////////////
 
+    //Timer
+    var seconds = 0
+
+var timer = setInterval(upTimer, 1000);
+
+function upTimer() {
+
+++seconds;
+
+var hour = Math.floor(seconds / 3600);
+
+var minute = Math.floor((seconds - hour * 3600) / 60);
+
+var updSecond = seconds - (hour * 3600 + minute * 60);
+
+document.getElementById("countup").innerHTML = hour + ":" + minute + ":" + updSecond;
+
+}
+
     // TODO 1
     // Create platforms
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
 
-
-
+    createPlatform(0,500,200,5)
+    createPlatform(200,400,20,5)
+    createPlatform(350,200,1000,5)
+    createPlatform(300,270,200,5)
+    createPlatform(0,600,10000,100) //Real floor
+    createPlatform(1345,0,100,10000) //Real Wall
+    
     
     // TODO 2
     // Create collectables
@@ -54,7 +78,9 @@ $(function () {
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
 
-
+    createCollectable("database", 300, 200)
+    createCollectable("database", 600, 100)
+    createCollectable("database", 1300, 100)
 
     // TODO 3
     // Create cannons
@@ -62,8 +88,11 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
-
+    createCannon("bottom", 500, 350, 20, 20)
+    createCannon("left",550,30,1000,20)
+    createCannon("right",667,30,1000,20)
+    createCannon("right", 300, 350, 20, 20)
+    createCannon("top", 1200, 600, 20, 20)
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
