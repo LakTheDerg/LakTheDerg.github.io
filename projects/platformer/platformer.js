@@ -88,11 +88,11 @@ document.getElementById("countup").innerHTML = hour + ":" + minute + ":" + updSe
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-    createCannon("bottom", 500, 350, 20, 20)
-    createCannon("left",550,30,1000,20)
-    createCannon("right",667,30,1000,20)
-    createCannon("right", 300, 350, 20, 20)
-    createCannon("top", 1200, 600, 20, 20)
+    createCannon("bottom", 500, 400, 10, 50)
+    createCannon("left",550,30,1200,50)
+    createCannon("right",667,30,1200,50)
+    createCannon("right", 300, 350, 50, 50)
+    createCannon("top", 1200, 600, 50, 50)
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
