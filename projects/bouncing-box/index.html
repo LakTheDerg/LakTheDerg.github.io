@@ -97,7 +97,7 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			setInterval(update, 16);
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
@@ -141,7 +141,7 @@
 
 			var newPositionY = Math.floor(Math.random() * boardHeight);
 
-			var hSpeed = Math.floor(Math.random() * 16);
+			var hSpeed = Math.floor(Math.random() * 9);
 			if (hSpeed === 0)
 				hSpeed += 1;
 			var wahHuh = Math.floor(Math.random() * 2);
@@ -149,7 +149,7 @@
 				hSpeed *= -1;
 			}
 
-			var vSpeed = Math.floor(Math.random() * 16);
+			var vSpeed = Math.floor(Math.random() * 9);
 			if (vSpeed === 0)
 			vSpeed += 1;
 			wahHuh = Math.floor(Math.random() * 2);
@@ -181,7 +181,7 @@
 					}
 					newPositionY = Math.floor(Math.random() * boardHeight);
 
-					hSpeed = Math.floor(Math.random() * 16);
+					hSpeed = Math.floor(Math.random() * 9);
 					if (hSpeed === 0){
 						hSpeed += 1;
 					}
@@ -190,7 +190,7 @@
 					hSpeed *= -1;
 					}
 
-					vSpeed = Math.floor(Math.random() * 16);
+					vSpeed = Math.floor(Math.random() * 9);
 					if (vSpeed === 0)
 					vSpeed += 1;
 					wahHuh = Math.floor(Math.random() * 2);
@@ -209,7 +209,7 @@
 					}
 					newPositionY = Math.floor(Math.random() * boardHeight);
 
-					hSpeed = Math.floor(Math.random() * 16);
+					hSpeed = Math.floor(Math.random() * 9);
 					if (hSpeed === 0){
 						hSpeed += 1;
 					}
@@ -218,7 +218,7 @@
 					hSpeed *= -1;
 					}
 
-					vSpeed = Math.floor(Math.random() * 16);
+					vSpeed = Math.floor(Math.random() * 9);
 					if (vSpeed === 0)
 					vSpeed += 1;
 					wahHuh = Math.floor(Math.random() * 2);
@@ -287,11 +287,14 @@
 					vSpeed*=(-1);
 				}
 				
-				hSpeed += 7;
-				vSpeed += 4;
+				hSpeed += 3;
+				vSpeed += 1.5;
 				wahHuh = Math.floor(Math.random() * 2);
 				if (wahHuh === 1){
 				hSpeed *= -1;
+				}
+				wahHuh = Math.floor(Math.random() * 2);
+				if (wahHuh === 1){
 				vSpeed *= -1;
 				}
 
