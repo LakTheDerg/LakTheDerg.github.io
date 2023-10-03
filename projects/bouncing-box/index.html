@@ -5,11 +5,16 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
+		body {
+			background-image: url(/images/boxBackground.jpg);
+			background-size: cover;
+
+		}
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
-			font-size: 300%;
+			background-color: white;
+			font-size: 100%;
 			text-align: center;
 			user-select: none;
 			display: block;
@@ -20,13 +25,63 @@
 		.board{
 			height: 100vh;
 		}
+
+		.scoreKeeper{
+			display:table-cell;
+			vertical-align: middle;
+		}
+
+		#player1Score{
+			font-size: 60px;
+			text-align: left;
+			line-height: 2px;
+			color: whitesmoke;
+			font-family: Impact;
+			text-shadow: 3px 3px 3px black;
+		}
+
+		#player2Score{
+			font-size: 60px;
+			text-align: right;
+			line-height: 2px;
+			color: whitesmoke;
+			font-family: Impact;
+			text-shadow: 3px 3px 3px black;
+		}
+
+		#superScoreTrackerP1{
+			font-size: 20px;
+			text-align: left;
+			line-height: 2px;
+			color: whitesmoke;
+			font-family: 'Courier New', Courier, monospace;
+			text-shadow: 3px 3px 3px black;
+		}
+
+		#superScoreTrackerP2{
+			font-size: 20px;
+			text-align: right;
+			line-height: 2px;
+			color: whitesmoke;
+			font-family: 'Courier New', Courier, monospace;
+			text-shadow: 3px 3px 3px black;
+		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
+<div id="scoreKeeper">
+<p id="player1Score"></p>
+<p id="superScoreTrackerP1"></p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p id="superScoreTrackerP2"></p>
+<p id="player2Score"></p>
+</div>
 <body class="board">
 	<!-- HTML for the box -->
-	<div class="box">?</div>
+	<div class="box"><img src="data:image/jpeg;base64,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"
+		width="70px"
+		height="70px"></div>
 
 	<script>
 		(function(){
@@ -64,8 +119,17 @@
 			
 			// TODO 2 - Variable declarations 
 			
+			alert("Hit the box as many times as you can! First player to 20 wins!");
+
+			var player1Score = jQuery('#player1Score');
+			var player2Score = jQuery('#player2Score');
+			var superScoreTrackerP1 = jQuery('#superScoreTrackerP1');
+			var superScoreTrackerP2 = jQuery('#superScoreTrackerP2');
+
 			var boardHeight = board.height();
 			var halfBoard = (boardWidth/2);
+
+			var winHasRan = false;
 
 			var newPositionX = Math.floor(Math.random() * boardWidth);
 			if (newPositionX <= 100){
@@ -93,6 +157,8 @@
 				vSpeed *= -1;
 			}
 
+			var superScoresP1 = 0;
+			var superScoresP2 = 0;
 			var scoreP1 = 0;
 			var scoreP2 = 0;
 			
@@ -159,6 +225,7 @@
 					if (wahHuh === 1){
 						vSpeed *= -1;
 					}
+					
 				}
 				newPositionY += vSpeed;
 				if ((vSpeed > 0) && (newPositionY >= (boardHeight-50))){
@@ -166,6 +233,20 @@
 				}
 				if ((vSpeed < 0) && (newPositionY <= 0)){
 					vSpeed*=(-1);
+				}
+				player1Score.text("Points: " + scoreP1);
+				player2Score.text("Points: " + scoreP2);
+				superScoreTrackerP1.text("Super Scores: " + superScoresP1);
+				superScoreTrackerP2.text("Super Scores: " + superScoresP2);
+				if ((scoreP1 === 20) && (winHasRan === false)){
+					alert("Player 1 wins!");
+					alert("Refresh to play again.");
+					winHasRan = true;
+				}
+				if ((scoreP2 === 20) && (winHasRan === false)){
+					alert("Player 2 wins!");
+					alert("Refresh to play again.");
+					winHasRan = true;
 				}
 			}
 
@@ -175,6 +256,23 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+				if(hSpeed >= 30){
+					if (halfBoard >= newPositionX){
+						scoreP1 += 3;
+						superScoresP1 += 1;
+					}
+					if (halfBoard < newPositionX){
+						scoreP2 += 3;
+						superScoresP2 += 1;
+					}
+				}
+				if (halfBoard >= newPositionX){
+					scoreP1 += 1;
+				}
+				else if (halfBoard < newPositionX){
+					scoreP2 += 1;
+				}
+
 				newPositionX = Math.floor(Math.random() * boardWidth);
 				if (newPositionX <= 100){
 				newPositionX += 300;
@@ -189,20 +287,14 @@
 					vSpeed*=(-1);
 				}
 				
-				hSpeed += 2.5;
-				vSpeed += 0.5;
+				hSpeed += 7;
+				vSpeed += 4;
 				wahHuh = Math.floor(Math.random() * 2);
 				if (wahHuh === 1){
 				hSpeed *= -1;
 				vSpeed *= -1;
 				}
 
-				if (halfBoard >= newPositionX){
-					scoreP1 += 1;
-				}
-				else if (halfBoard <= newPositionX){
-					scoreP2 += 1;
-				}
 			};
 		})();
 	</script>
