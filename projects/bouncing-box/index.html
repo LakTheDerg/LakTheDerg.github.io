@@ -97,7 +97,7 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 16);
+			setInterval(update, 50);
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
@@ -141,17 +141,19 @@
 
 			var newPositionY = Math.floor(Math.random() * boardHeight);
 
-			var hSpeed = Math.floor(Math.random() * 9);
-			if (hSpeed === 0)
+			var hSpeed = Math.floor(Math.random() * 16);
+			if (hSpeed === 0){
 				hSpeed += 1;
+			}
 			var wahHuh = Math.floor(Math.random() * 2);
 			if (wahHuh === 1){
 				hSpeed *= -1;
 			}
 
-			var vSpeed = Math.floor(Math.random() * 9);
-			if (vSpeed === 0)
+			var vSpeed = Math.floor(Math.random() * 16);
+			if (vSpeed === 0){
 			vSpeed += 1;
+			}
 			wahHuh = Math.floor(Math.random() * 2);
 			if (wahHuh === 1){
 				vSpeed *= -1;
@@ -168,7 +170,7 @@
 			turn it around! 
 			*/
 			function update() {
-				moveBoxTo(newPositionX, newPositionY)
+				moveBoxTo(newPositionX, newPositionY);
 				newPositionX += hSpeed;
 				if ((hSpeed > 0) && (newPositionX >= boardWidth)){
 					scoreP2 -= 1;
@@ -181,7 +183,7 @@
 					}
 					newPositionY = Math.floor(Math.random() * boardHeight);
 
-					hSpeed = Math.floor(Math.random() * 9);
+					hSpeed = Math.floor(Math.random() * 16);
 					if (hSpeed === 0){
 						hSpeed += 1;
 					}
@@ -190,7 +192,7 @@
 					hSpeed *= -1;
 					}
 
-					vSpeed = Math.floor(Math.random() * 9);
+					vSpeed = Math.floor(Math.random() * 16);
 					if (vSpeed === 0)
 					vSpeed += 1;
 					wahHuh = Math.floor(Math.random() * 2);
@@ -209,7 +211,7 @@
 					}
 					newPositionY = Math.floor(Math.random() * boardHeight);
 
-					hSpeed = Math.floor(Math.random() * 9);
+					hSpeed = Math.floor(Math.random() * 16);
 					if (hSpeed === 0){
 						hSpeed += 1;
 					}
@@ -218,7 +220,7 @@
 					hSpeed *= -1;
 					}
 
-					vSpeed = Math.floor(Math.random() * 9);
+					vSpeed = Math.floor(Math.random() * 16);
 					if (vSpeed === 0)
 					vSpeed += 1;
 					wahHuh = Math.floor(Math.random() * 2);
@@ -256,14 +258,46 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				if(hSpeed >= 30){
+				if(hSpeed >= 23){
 					if (halfBoard >= newPositionX){
 						scoreP1 += 3;
-						superScoresP1 += 1;
+						superScoresP1 ++;
+						hSpeed = Math.floor(Math.random() * 16);
+					if (hSpeed === 0){
+						hSpeed += 1;
+					}
+					wahHuh = Math.floor(Math.random() * 2);
+					if (wahHuh === 1){
+					hSpeed *= -1;
+					}
+
+					vSpeed = Math.floor(Math.random() * 16);
+					if (vSpeed === 0)
+					vSpeed += 1;
+					wahHuh = Math.floor(Math.random() * 2);
+					if (wahHuh === 1){
+						vSpeed *= -1;
+					}
 					}
 					if (halfBoard < newPositionX){
 						scoreP2 += 3;
-						superScoresP2 += 1;
+						superScoresP2 ++;
+						hSpeed = Math.floor(Math.random() * 16);
+					if (hSpeed === 0){
+						hSpeed += 1;
+					}
+					wahHuh = Math.floor(Math.random() * 2);
+					if (wahHuh === 1){
+					hSpeed *= -1;
+					}
+
+					vSpeed = Math.floor(Math.random() * 16);
+					if (vSpeed === 0)
+					vSpeed += 1;
+					wahHuh = Math.floor(Math.random() * 2);
+					if (wahHuh === 1){
+						vSpeed *= -1;
+					}
 					}
 				}
 				if (halfBoard >= newPositionX){
