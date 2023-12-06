@@ -35,7 +35,7 @@ var init = function (window) {
 
         // TODO 3 / 7 : Call the drawCircle() function 
 
-        for(var doThis = 0 ; doThis <= 5 ; doThis++){
+        for(var doThis = 1 ; doThis <= 100 ; doThis++){
         drawCircle();
         }
 
@@ -51,13 +51,13 @@ var init = function (window) {
         function update() {
             // TODO 4 : Update the circle's position //
 
-            for(var doThis = 0 ; doThis <= 4 ; doThis++){
+            for(var doThis = 0 ; doThis <= 99 ; doThis++){
                 physikz.updatePosition(circles[doThis]);
             }
 
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
             
-            for(var doThis = 0 ; doThis <= 4 ; doThis++){
+            for(var doThis = 0 ; doThis <= 99 ; doThis++){
                 game.checkCirclePosition(circles[doThis]);
             }
 
@@ -81,7 +81,9 @@ var init = function (window) {
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             
-            
+            if (circle.x < 0){
+                circle.x = canvas.width
+            }
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
