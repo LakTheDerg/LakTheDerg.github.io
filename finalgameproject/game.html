@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="game.css">
+
+    <script>
+    
+    var frames = ["https://static.boredpanda.com/blog/wp-content/uploads/2019/09/dancing-cat-chaco-wakaponsan-fb-png__700.jpg", 
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4y7zVmHqMDDZPFYCAtIvlWWGYofVYEwNg4AyzbXsRg&s"];
+    var frameValue = 0;
+    function frameProceed(){
+        frameValue++;
+        return frameValue;
+    }
+    function showImage(img){
+        window.document.frameOn.src=img
+    }
+    </script>
+    <!-- frame scripts ^ -->
+</head>
+<body>
+    <img src="https://static.boredpanda.com/blog/wp-content/uploads/2019/09/dancing-cat-chaco-wakaponsan-fb-png__700.jpg" 
+        width = 650
+        height = 650
+        name = "frameOn">
+    <br>
+    <button class="button" onclick="frameProceed(), showImage(frames[frameValue])">Click to change frame!</button>
+</body>
