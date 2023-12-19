@@ -6,53 +6,112 @@
     <script>
     
     var frameDisplay =[];
-    var frames = ["https://static.boredpanda.com/blog/wp-content/uploads/2019/09/dancing-cat-chaco-wakaponsan-fb-png__700.jpg", 
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4y7zVmHqMDDZPFYCAtIvlWWGYofVYEwNg4AyzbXsRg&s"];
-    var textDisplay = [];
-    var textFrames = ["We changed!", 
-    "Another filler text, yay!", 
-    "One more filler text, yahoo!"];
+    var textDisplay = ["debug text, hello! you shouldn't be seeing this."];
+    var narLinesP0 = ["Your head feels heavy, same with your eyes. A displeasure washes over you as you're ripped away from a pleasent dream, replaced by the, quite literally, cold reality. It's your first day at a new job, and an odd one at that.",
+"Typically a janitorial position isn't that insane of a field, though the people you were working for were VERY different. They were some kind of Privite Military Company, but regardless of what someone does, you supposed they always needed a janitor to clean up the mess. You just hoped that mess involved more dirt and dust and less brain matter...",
+"You dragged yourself out by your heels. As much as you liked money, this sounded like pain. Worse than tolling physical labor was mundane physical labor. As you drove yourself to the not-at-all horrifying concrete bunker, scanned the ID card they issued, you walked down to your position, grabbing a broom and mop and getting to work...",
+"As you walked down to the firing range, your first place to stop, a voice calls out to you.",
+"You were confused, but approached regardless. It was someone behind a bulletproof glass, with a small slot at the bottom for fitting papers through.",
+"Your speech was stuttered, flustered at your blatent disregard for... well, to put it softly, common sense."];
+    var johnLinesP0 = [];
+    var abiLinesP0 = [];
+    var extraLinesP0 = ["''HEY, KID. OVER HERE!''", 
+    "''Do you have a deathwish? You can't just walk into a firing range without giving me your name first!''",
+    "He takes notice of your staggering speech, responding with a slightly annoyed sigh. ''I'll be honest, I do not care, but it'd do you some good to be more aware. Now just give me your name.''"];
+    var path1 = false;
+    var path2 = false;
+
     var frameValue = 0;
+
+    var chara;
     //variables ↑
 
     //functions ↓
-    function frameProceed(){
-        frameValue++;
-        return frameValue;
-    }
     function changeImage(img){
         window.document.frameOn.src=img;
     }
     function changeText(txt){
-        document.getElementById("textFrameOn").innerHTML = (txt);
+        document.getElementById("textFrameOn").innerHTML = textDisplay[frameValue];
     }
-    function textAdder(){
+    function changeCharacter(char){
+        document.getElementById("characterYapping").innerHTML = (char);
+    }
+    function characterChanger(yap){
+        if (yap === "n"){
+            chara = "You";
+        }
+        else if (yap === "j"){
+            chara = "John";
+        }
+        else if (yap === "a"){
+            chara = "Abigail";
+        }
+        else if(yap === "b"){
+            chara = "";
+        }
+        else{
+            chara = "???";
+        }
+        changeCharacter(chara);
+    }
+
+    // THE MEGA SCRIPT, BE AFRAID
+    function everythingAllAtOnce(){
+        //Text frame data, path 0
+        frameValue++;
+        if (frameValue === 1){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[0];
+        }
+        else if (frameValue === 2){
+            textDisplay[frameValue] = narLinesP0[1];
+        }
+        else if (frameValue === 3){
+            textDisplay[frameValue] = narLinesP0[2];
+        }
+        else if (frameValue === 4){
+            textDisplay[frameValue] = narLinesP0[3];
+        }
+        else if (frameValue === 5){
+            textDisplay[frameValue] = extraLinesP0[0];
+        }
+        else if (frameValue === 6){
+            textDisplay[frameValue] = narLinesP0[4];
+        }
+        else if (frameValue === 7){
+            textDisplay[frameValue] = extraLinesP0[1];
+        }
+        else if (frameValue === 8){
+            textDisplay[frameValue] = narLinesP0[5];
+        }
+        else if (frameValue === 9){
+            textDisplay[frameValue] = extraLinesP0[2];
+        }
+        else if (frameValue === 10){
+            var playName = prompt("What is your name?");
+            extraLinesP0[3] = "''Huh, " + playName + "?'' You could hear clicking on a computer, before looking back up. ''Weird name but alright. Door's on your left broom boy.''";
+            textDisplay[frameValue] = extraLinesP0[3];
+        }
+        //Image frame data, path 0
+        if (frameValue === 1){
+            changeImage("https://s3.amazonaws.com/static.graphemica.com/glyphs/i300s/000/005/768/original/2665-300x300.png?1275296065")
+        }
         if (frameValue === 3){
-            textDisplay[frameValue] = "Hey " + prompt("What's your name?") + "!";
+            changeImage("https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*");
         }
-        else{
-            textDisplay[frameValue] = textFrames[frameValue];
-        }
-    }
-    function imgAdder(){
-        if (frameValue === 999){
-            frameDisplay[frameValue];
-        }
-        else{
-            frameDisplay[frameValue] = frames[frameValue];
-        }
+        changeText();
     }
     </script>
     <!-- frame scripts ^ -->
 </head>
 <body>
-    <img src="data:image/jpeg;base64,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" 
+    <img src="yea" 
         width = 560
         height = 560
         name = "frameOn">
     <br>
-    <div class=textBox onclick="textAdder(); imgAdder(); changeImage(frameDisplay[frameValue]); changeText(textDisplay[frameValue]); frameProceed();">
-        <p id="textFrameOn">Filler text, yay!</p>
-        <p class=clickContinue>Click the box to continue.</p>
+    <div class=textBox onclick="everythingAllAtOnce();">
+        <p id="textFrameOn">♡ Click to Start! ♡</p>
+        <p id="characterYapping"></p>
     </div>
 </body>
