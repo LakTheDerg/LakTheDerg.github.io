@@ -12,8 +12,11 @@
 "You dragged yourself out by your heels. As much as you liked money, this sounded like pain. Worse than tolling physical labor was mundane physical labor. As you drove yourself to the not-at-all horrifying concrete bunker, scanned the ID card they issued, you walked down to your position, grabbing a broom and mop and getting to work...",
 "As you walked down to the firing range, your first place to stop, a voice calls out to you.",
 "You were confused, but approached regardless. It was someone behind a bulletproof glass, with a small slot at the bottom for fitting papers through.",
-"Your speech was stuttered, flustered at your blatent disregard for... well, to put it softly, common sense."];
-    var johnLinesP0 = [];
+"Your speech was stuttered, flustered at your blatent disregard for... well, to put it softly, common sense.",
+"Walking in, you can see many people at the range, though most of them are finished and are just cleaning up their weapons. One guy is still shooting, a very tall man with a short mohawk.",
+"Taking the advice of the person who took your name, you decide to let him finish shooting."];
+    var johnLinesP0 = ["''YEA! Another bullseye for me!'' He shouts out, many people giving vaguely friendly smiles before hurringly returning to their work. He empties the gun, placing it down and turning to face you.",
+    "''Oh, hey little dude, sorry I didn't notice you before.'' He holds out his hand, offering a handshake. ''You're the new janitor guy, yeah?''"];
     var abiLinesP0 = [];
     var extraLinesP0 = ["''HEY, KID. OVER HERE!''", 
     "''Do you have a deathwish? You can't just walk into a firing range without giving me your name first!''",
@@ -73,18 +76,23 @@
             textDisplay[frameValue] = narLinesP0[3];
         }
         else if (frameValue === 5){
+            characterChanger("b")
             textDisplay[frameValue] = extraLinesP0[0];
         }
         else if (frameValue === 6){
+            characterChanger("n")
             textDisplay[frameValue] = narLinesP0[4];
         }
         else if (frameValue === 7){
+            characterChanger("b")
             textDisplay[frameValue] = extraLinesP0[1];
         }
         else if (frameValue === 8){
+            characterChanger("n")
             textDisplay[frameValue] = narLinesP0[5];
         }
         else if (frameValue === 9){
+            characterChanger("b")
             textDisplay[frameValue] = extraLinesP0[2];
         }
         else if (frameValue === 10){
@@ -92,12 +100,29 @@
             extraLinesP0[3] = "''Huh, " + playName + "?'' You could hear clicking on a computer, before looking back up. ''Weird name but alright. Door's on your left broom boy.''";
             textDisplay[frameValue] = extraLinesP0[3];
         }
+        else if (frameValue === 11){
+            characterChanger("n")
+            textDisplay[frameValue] = narLinesP0[6];
+        }
+        else if (frameValue === 12){
+            textDisplay[frameValue] = narLinesP0[7];
+        }
+        else if (frameValue === 13){
+            characterChanger("j")
+            textDisplay[frameValue] = johnLinesP0[0];
+        }
+        else if (frameValue === 14){
+            textDisplay[frameValue] = johnLinesP0[1];
+        }
         //Image frame data, path 0
         if (frameValue === 1){
-            changeImage("https://s3.amazonaws.com/static.graphemica.com/glyphs/i300s/000/005/768/original/2665-300x300.png?1275296065")
+            changeImage("/images/final/f0p0.gif");
         }
         if (frameValue === 3){
-            changeImage("https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*");
+            changeImage("/images/final/f1p0.gif");
+        }
+        if (frameValue === 5){
+            changeImage("/images/final/f2p0.gif");
         }
         changeText();
     }
@@ -105,7 +130,7 @@
     <!-- frame scripts ^ -->
 </head>
 <body>
-    <img src="yea" 
+    <img src="/images/final/titleS.jpg" 
         width = 560
         height = 560
         name = "frameOn">
