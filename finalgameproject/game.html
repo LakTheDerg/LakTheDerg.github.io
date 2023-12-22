@@ -9,18 +9,33 @@
     var textDisplay = ["debug text, hello! you shouldn't be seeing this."];
     var narLinesP0 = ["Your head feels heavy, same with your eyes. A displeasure washes over you as you're ripped away from a pleasent dream, replaced by the, quite literally, cold reality. It's your first day at a new job, and an odd one at that.",
 "Typically a janitorial position isn't that insane of a field, though the people you were working for were VERY different. They were some kind of Privite Military Company, but regardless of what someone does, you supposed they always needed a janitor to clean up the mess. You just hoped that mess involved more dirt and dust and less brain matter...",
-"You dragged yourself out by your heels. As much as you liked money, this sounded like pain. Worse than tolling physical labor was mundane physical labor. As you drove yourself to the not-at-all horrifying concrete bunker, scanned the ID card they issued, you walked down to your position, grabbing a broom and mop and getting to work...",
-"As you walked down to the firing range, your first place to stop, a voice calls out to you.",
+"You dragged yourself out by your heels. As much as you liked money, this sounded like pain. Worse than tolling physical labor was mundane physical labor. You drove yourself to the not-at-all horrifying concrete bunker, scanned the ID card they issued, and walked down to your position, grabbing a broom and mop and getting to work...",
+"You decided to start in the firing range, and as you walked down, a voice called out to you.",
 "You were confused, but approached regardless. It was someone behind a bulletproof glass, with a small slot at the bottom for fitting papers through.",
 "Your speech was stuttered, flustered at your blatent disregard for... well, to put it softly, common sense.",
 "Walking in, you can see many people at the range, though most of them are finished and are just cleaning up their weapons. One guy is still shooting, a very tall man with a short mohawk.",
-"Taking the advice of the person who took your name, you decide to let him finish shooting."];
-    var johnLinesP0 = ["''YEA! Another bullseye for me!'' He shouts out, many people giving vaguely friendly smiles before hurringly returning to their work. He empties the gun, placing it down and turning to face you.",
-    "''Oh, hey little dude, sorry I didn't notice you before.'' He holds out his hand, offering a handshake. ''You're the new janitor guy, yeah?''"];
-    var abiLinesP0 = [];
+"Taking the advice of the person who took your name, you decide to let him finish shooting.",
+"You shake the man's hand and nod. His grip is soft but just from placing your palm in his, you can feel his absurd strength--which should have been apparent from his height and well-defined arms.",
+"That was... interesting. You actually get to cleaning the range, making sure to mark it as closed as you do. Wouldn't want to be one with the targets on your first day. After cleaning, you feel you could go for something to eat.",
+"The cafeteria was surprisingly empty, the only person there being a cafeteria lady, patiently waiting for someone to approach.",
+"You walk up, hoping for some kind of food. You take out your wallet, waving at the person behind the counter.",
+"You sigh, now walking out of the cafeteria. She seemed nice, but you'd rather some food...",
+"As you make your way out of the cafeteria, you suddenly notice an odd creature with a skull for a face, holding some stop sign and looking around aggressively.",
+"''What do you mean?'' You ask curiously, ''This thing just started, how's it over already?''",
+"You, though reluctantly, cease existing."];
+    var johnLinesP0 = ["''YEA! Another bullseye for me!'' He shouts out, many people giving vaguely friendly smiles before hurringly returning to their work. He empties the gun, placing it down and turning to face you with a little perk in his ears.",
+"''Oh, hey little dude, sorry I didn't notice you before.'' He holds out his hand, offering a handshake. ''You're the new janitor guy, yeah?''",
+"''Sweet! It's nice to meet you man.'' He shakes your hand rapidly, like your some kind of celebrity. It would typically feel like they were being sarcastic, but he just seemed so genuine.",
+"''If you need any help, just let me know dude!'' He slips on some sunglasses he had in his pocket, before walking over to the water cooler."];
+    var abiLinesP0 = ["''Oh, hello! Wasn't expecting anyone at this time.'' She says with a warm smile, noticing you taking out your wallet.",
+"''Ah, hold on. I wasn't quite prepared, heheh! Lemme check in the back for whatever we have.'' She hurriedly turns and walks into the back side of the cafeteria, staying in there for what you guessed to be 2-3 minutes.",
+"She comes out, a nervous look on her face. ''So... small problem. We don't have any food yet. I guess the delivery didn't come in yet...''",
+"She chuckles before sighing. ''I'm uh... really sorry. Maybe you could come back next time..? I'm sure we'll have... <i>something.</i>''"];
+    var lakLinesP0 = ["''Hey! Stop right there! Can't go any futher.''",
+"''Look, we have a <u>STRICT</u> budget here. The guy making this can't afford much else! Now go on, scram.''"];
     var extraLinesP0 = ["''HEY, KID. OVER HERE!''", 
-    "''Do you have a deathwish? You can't just walk into a firing range without giving me your name first!''",
-    "He takes notice of your staggering speech, responding with a slightly annoyed sigh. ''I'll be honest, I do not care, but it'd do you some good to be more aware. Now just give me your name.''"];
+"''Do you have a deathwish? You can't just walk into a firing range without giving me your name first!''",
+"He takes notice of your staggering speech, responding with a slightly annoyed sigh. ''I'll be honest, I do not care, but it'd do you some good to be more aware. Now just give me your name.''",];
     var path1 = false;
     var path2 = false;
 
@@ -52,6 +67,9 @@
         else if(yap === "b"){
             chara = "";
         }
+        else if(yap === "l"){
+            chara = "Lak";
+        }
         else{
             chara = "???";
         }
@@ -61,6 +79,7 @@
     // THE MEGA SCRIPT, BE AFRAID
     function everythingAllAtOnce(){
         //Text frame data, path 0
+        if (frameValue < 32){
         frameValue++;
         if (frameValue === 1){
             characterChanger("n");
@@ -108,23 +127,115 @@
             textDisplay[frameValue] = narLinesP0[7];
         }
         else if (frameValue === 13){
-            characterChanger("j")
+            characterChanger("j");
             textDisplay[frameValue] = johnLinesP0[0];
         }
         else if (frameValue === 14){
             textDisplay[frameValue] = johnLinesP0[1];
         }
+        else if (frameValue === 15){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[8];
+        }
+        else if (frameValue === 16){
+            characterChanger("j");
+            textDisplay[frameValue] = johnLinesP0[2];
+        }
+        else if (frameValue === 17){
+            textDisplay[frameValue] = johnLinesP0[3];
+        }
+        else if (frameValue === 18){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[9];
+        }
+        else if (frameValue === 19){
+            textDisplay[frameValue] = narLinesP0[10];
+        }
+        else if (frameValue === 20){
+            textDisplay[frameValue] = narLinesP0[11];
+        }
+        else if (frameValue === 21){
+            characterChanger("a");
+            textDisplay[frameValue] = abiLinesP0[0];
+        }
+        else if (frameValue === 22){
+            textDisplay[frameValue] = abiLinesP0[1];
+        }
+        else if (frameValue === 23){
+            textDisplay[frameValue] = abiLinesP0[2];
+        }
+        else if (frameValue === 24){
+            textDisplay[frameValue] = abiLinesP0[3];
+        }
+        else if (frameValue === 25){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[12];
+        }
+        else if (frameValue === 26){
+            textDisplay[frameValue] = narLinesP0[13];
+        }
+        else if (frameValue === 27){
+            characterChanger("l");
+            textDisplay[frameValue] = lakLinesP0[0];
+        }
+        else if (frameValue === 28){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[14];
+        }
+        else if (frameValue === 29){
+            characterChanger("l");
+            textDisplay[frameValue] = lakLinesP0[1];
+        }
+        else if (frameValue === 30){
+            characterChanger("n");
+            textDisplay[frameValue] = narLinesP0[15];
+        }
+        else if (frameValue === 31){
+            characterChanger("b");
+            textDisplay[frameValue] = "yeah i heavily underestimated how long this entire thing would take, so here's a cheap ending!! i'll be continuing this later but it is already 1 in the morning and i have only made a few panels. whoops!!";
+        }
+        else if (frameValue === 32){
+            characterChanger("b");
+            textDisplay[frameValue] = "da end :)";
+        }
+
         //Image frame data, path 0
         if (frameValue === 1){
             changeImage("/images/final/f0p0.gif");
         }
-        if (frameValue === 3){
+        else if (frameValue === 3){
             changeImage("/images/final/f1p0.gif");
         }
-        if (frameValue === 5){
+        else if (frameValue === 5){
             changeImage("/images/final/f2p0.gif");
         }
+        else if (frameValue === 11){
+            changeImage("/images/final/f3p0.gif");
+        }
+        else if (frameValue === 14){
+            changeImage("/images/final/f4p0.gif");
+        }
+        else if (frameValue === 18){
+            changeImage("/images/final/f5p0.gif");
+        }
+        else if (frameValue === 19){
+            changeImage("/images/final/f6p0.gif");
+        }
+        else if (frameValue === 23){
+            changeImage("/images/final/f7p0.gif");
+        }
+        else if (frameValue === 26){
+            changeImage("/images/final/f8p0.gif");
+        }
+        else if (frameValue === 29){
+            changeImage("/images/final/f9p0.gif");
+        }
+        else if (frameValue === 31){
+            changeImage("/images/final/f10p0.gif");
+        }
+
         changeText();
+        }
     }
     </script>
     <!-- frame scripts ^ -->
